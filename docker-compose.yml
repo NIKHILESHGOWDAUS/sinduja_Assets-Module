@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin123
     ports:
-      - "5880:5432"
+      - "5203:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -19,7 +19,7 @@ services:
     build:
       context: ./Backend
     ports:
-      - "3500:3500"
+      - "3203:3203"
     depends_on:
       - postgres
     networks:
@@ -29,7 +29,7 @@ services:
     build:
       context: ./Employee-Assets
     ports:
-      - "8119:80"
+      - "8006:80"
     depends_on:
       - backend
     networks:
@@ -39,7 +39,7 @@ services:
     build:
       context: ./HR-Assets
     ports:
-      - "8120:80"
+      - "8007:80"
     depends_on:
       - backend
     networks:
